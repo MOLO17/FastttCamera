@@ -138,6 +138,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+        
+    // workaround to fix pinch to zoom issue
+    if ([FastttCamera isCameraDeviceAvailable:FastttCameraDeviceRear]) {
+        self.cameraDevice = FastttCameraDeviceRear;
+    }
     
     [self startRunning];
     
